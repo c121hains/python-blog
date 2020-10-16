@@ -4,6 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_login import LoginManager
 from flask_mail import Mail
+from flask_bootstrap import Bootstrap
 
 import logging
 from logging.handlers import SMTPHandler
@@ -16,6 +17,7 @@ db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 login = LoginManager(app)
 login.login_view = 'login'
+bootstrap = Bootstrap(app)
 
 # How to start emulated mail server: https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-x-email-support
 # (venv) $ python -m smtpd -n -c DebuggingServer localhost:8025

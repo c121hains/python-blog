@@ -1,4 +1,18 @@
 {% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+<!--Instead of having to style the form fields one by one, Flask-Bootstrap comes with a macro that accepts a Flask-WTF 
+    form object as an argument and renders the complete form using Bootstrap styles.-->
+{% block app_content %}
+    <h1>Register</h1>
+    <div class="row">
+        <div class="col-md-4">
+            {{ wtf.quick_form(form) }}
+        </div>
+    </div>
+{% endblock %}
+
+<!--{% extends "base.html" %}
 
 {% block content %}
     <h1>Register</h1>
@@ -34,4 +48,4 @@
         </p>
         <p>{{ form.submit() }}</p>
     </form>
-{% endblock %}
+{% endblock %}-->
