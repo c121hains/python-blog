@@ -5,6 +5,7 @@ from flask_migrate import Migrate
 from flask_login import LoginManager
 from flask_mail import Mail
 from flask_bootstrap import Bootstrap
+from flask_moment import Moment
 
 import logging
 from logging.handlers import SMTPHandler
@@ -18,6 +19,9 @@ migrate = Migrate(app, db)
 login = LoginManager(app)
 login.login_view = 'login'
 bootstrap = Bootstrap(app)
+
+#Flask-Moment, a small Flask extension that makes it very easy to incorporate moment.js into your application.
+moment = Moment(app) #Parse, validate, manipulate, and display dates and times in JavaScript.
 
 # How to start emulated mail server: https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-x-email-support
 # (venv) $ python -m smtpd -n -c DebuggingServer localhost:8025

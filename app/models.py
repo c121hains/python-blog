@@ -14,6 +14,7 @@ followers = db.Table('followers',
 
 
 # https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-iv-database
+#UserMixin includes default implementations for the Flask-Login user object
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(64), index=True, unique=True)
@@ -21,7 +22,7 @@ class User(UserMixin, db.Model):
     password_hash = db.Column(db.String(128))
     posts = db.relationship('Post', backref='author', lazy='dynamic')
     about_me = db.Column(db.String(140))
-    last_seen = db.Column(db.DateTime, default=datetime.utcnow)
+    last_seen = db.Column(db.DateTime, default=datetime.utcnow)  #Sets the datetime each time this user is requested
 
     followed = db.relationship(
         'User', secondary=followers,
