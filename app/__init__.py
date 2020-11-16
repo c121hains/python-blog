@@ -6,6 +6,8 @@ from flask_login import LoginManager
 from flask_mail import Mail
 from flask_bootstrap import Bootstrap
 from flask_moment import Moment
+from flask_babel import Babel, lazy_gettext as _l
+from flask import request
 
 import logging
 from logging.handlers import SMTPHandler
@@ -16,9 +18,19 @@ app = Flask(__name__)
 app.config.from_object(Config)
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
+
 login = LoginManager(app)
 login.login_view = 'login'
+login.login_message = _l('Please log in to access this page.')
+
 bootstrap = Bootstrap(app)
+babel = Babel(app)
+
+@babel.localeselector
+def get_locale():
+    #return 'es'  #Force it to load Spanish
+    return request.accept_languages.best_match(app.config['LANGUAGES'])
+    
 
 #Flask-Moment, a small Flask extension that makes it very easy to incorporate moment.js into your application.
 moment = Moment(app) #Parse, validate, manipulate, and display dates and times in JavaScript.
