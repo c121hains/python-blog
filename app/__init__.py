@@ -1,6 +1,5 @@
-'''Two versions of this app exist and reside in separate branches.  This version of microblog contains the original structure. The other
+'''There are two versions of this app which reside in separate branches.  This version of microblog contains the original structure. The other
 branch uses blueprints to modularize reusable features of the program.'''  
-
 
 from flask import Flask
 from config import Config
