@@ -39,6 +39,7 @@ moment = Moment(app) #Parse, validate, manipulate, and display dates and times i
 # (venv) $ python -m smtpd -n -c DebuggingServer localhost:8025
 mail = Mail(app)
 
+
 from app import routes, models, errors
 
 
