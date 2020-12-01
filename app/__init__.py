@@ -1,3 +1,7 @@
+'''Two versions of this app exist and reside in separate branches.  This version of microblog contains the original structure. The other
+branch uses blueprints to modularize reusable features of the program.'''  
+
+
 from flask import Flask
 from config import Config
 from flask_sqlalchemy import SQLAlchemy
